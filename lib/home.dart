@@ -1,5 +1,6 @@
 import 'package:buttonsexamples/calculator_page.dart';
 import 'package:buttonsexamples/drawer_page.dart';
+import 'package:buttonsexamples/grid_view_page.dart';
 import 'package:buttonsexamples/instgram.dart';
 import 'package:buttonsexamples/messages_page.dart';
 import 'package:buttonsexamples/nav_first_page.dart';
@@ -89,6 +90,14 @@ class HomePage extends StatelessWidget {
                           builder: (BuildContext context) => MessagesPage()));
                 },
                 child: Text("Messages Example")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => GridViewPage()));
+                },
+                child: Text("GridView Example")),
           ],
         ),
       ),
