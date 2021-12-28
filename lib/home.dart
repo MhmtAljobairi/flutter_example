@@ -1,5 +1,6 @@
 import 'package:buttonsexamples/calculator_page.dart';
 import 'package:buttonsexamples/drawer_page.dart';
+import 'package:buttonsexamples/form_adv_page.dart';
 import 'package:buttonsexamples/grid_view_page.dart';
 import 'package:buttonsexamples/instgram.dart';
 import 'package:buttonsexamples/messages_page.dart';
@@ -98,6 +99,14 @@ class HomePage extends StatelessWidget {
                           builder: (BuildContext context) => GridViewPage()));
                 },
                 child: Text("GridView Example")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => FormAdvPage()));
+                },
+                child: Text("Register Form Example")),
           ],
         ),
       ),

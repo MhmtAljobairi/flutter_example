@@ -1,3 +1,5 @@
+import 'package:buttonsexamples/controllers/my_http.dart';
+import 'package:buttonsexamples/models/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,16 +9,19 @@ class FormAdvPage extends StatefulWidget {
 }
 
 class _FormBAdvPageState extends State<FormAdvPage> {
-  TextEditingController fullNameController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailAddressController = TextEditingController();
 
   final _key = GlobalKey<FormState>();
 
-  _handleValidation() {
+  _handleValidation() async {
     bool validation = _key.currentState!.validate();
     if (validation) {
-      print("DONE");
+      var user = User(0, firstNameController.text, lastNameController.text,
+          passwordController.text, emailAddressController.text);
+      var response = await MyHttp().post("/users", user.toJson());
     } else {
       print("ERROR");
     }
@@ -34,16 +39,30 @@ class _FormBAdvPageState extends State<FormAdvPage> {
           child: Column(
             children: [
               TextFormField(
-                controller: fullNameController,
+                controller: firstNameController,
                 keyboardType: TextInputType.name,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Please enter your full name";
+                    return "Please enter your first name";
                   }
                   return null;
                 },
                 decoration: const InputDecoration(
-                    labelText: "Full Names",
+                    labelText: "First Name",
+                    suffix: Icon(Icons.clear),
+                    icon: Icon(Icons.person)),
+              ),
+              TextFormField(
+                controller: lastNameController,
+                keyboardType: TextInputType.name,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter your last name";
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                    labelText: "Last Name",
                     suffix: Icon(Icons.clear),
                     icon: Icon(Icons.person)),
               ),
