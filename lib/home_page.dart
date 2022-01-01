@@ -1,8 +1,17 @@
+import 'package:buttonsexamples/controllers/my_share_prefrences.dart';
+import 'package:buttonsexamples/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatelessWidget {
   void handleFloatingButtonClick() {
     //Function body.
+  }
+
+  _handleLogoutAction(BuildContext context) async {
+    MySharePrefrenace().cleanToken();
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
   }
 
   @override
@@ -35,7 +44,12 @@ class MyHomePage extends StatelessWidget {
                 height: 100,
                 width: 100,
               ),
-            )
+            ),
+            TextButton(
+                onPressed: () {
+                  _handleLogoutAction(context);
+                },
+                child: Text("Logout")),
           ],
         ),
       ),

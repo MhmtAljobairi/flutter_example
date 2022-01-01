@@ -1,4 +1,5 @@
-import 'package:buttonsexamples/home.dart';
+import 'package:buttonsexamples/login_page.dart';
+import 'package:buttonsexamples/slack.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red,
           errorColor: Colors.orange,
           appBarTheme: AppBarTheme(titleTextStyle: TextStyle(fontSize: 30))),
-      home: HomePage(),
+      home: SplashPage(),
     );
   }
 }

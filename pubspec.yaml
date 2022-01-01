@@ -32,6 +32,7 @@ dependencies:
   math_expressions: ^2.2.0
   fluttertoast: ^8.0.8
   http: ^0.13.4
+  shared_preferences: ^2.0.11
 
 
 
